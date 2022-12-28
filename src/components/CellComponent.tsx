@@ -1,10 +1,16 @@
-import React from "react"
+import {FC} from "react"
+import { Cell } from "../models/Cell"
 
-export  const CellComponent=()=>{
+
+interface CellProps{
+    cell:Cell
+}
+
+export  const CellComponent:FC<CellProps>=({cell})=>{
 
     return(
-        <div className="cell">
-
+        <div className="cell" style={{background:cell.color}}>
+                {cell.figure?.logo&&<img src={cell.figure.logo}></img>}
         </div>
     )
 }

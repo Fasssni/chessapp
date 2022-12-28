@@ -1,5 +1,6 @@
 import { Board } from "../models/Board"
-import React from "react"
+import{FC} from "react"
+import React from "react";
 import { Cell } from "../models/Cell";
 import { CellComponent } from "./CellComponent";
 
@@ -8,7 +9,7 @@ interface BoardProps{
     setBoard:(board: Board)=>void;
    }
 
-export const BoardComponent: React.FC<BoardProps> =({board,setBoard})=>{
+export const BoardComponent: FC<BoardProps> =({board,setBoard})=>{
 
 
 
@@ -16,10 +17,11 @@ export const BoardComponent: React.FC<BoardProps> =({board,setBoard})=>{
         <div className="board">
             {board.cells.map((row, index)=>
             <React.Fragment key={index}>
-                {row.map(cell=>
-                    <CellComponent></CellComponent>)}
+                {row.map((cell)=>
+                    <CellComponent cell={cell}></CellComponent>)}
             </React.Fragment>)}
             
         </div>
+
     )
 }
